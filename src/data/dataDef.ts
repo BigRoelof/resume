@@ -31,6 +31,7 @@ interface HeroActionItem {
   href: string;
   text: string;
   primary?: boolean;
+  download?: boolean;
   Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
 }
 
@@ -64,6 +65,7 @@ export interface Stat {
 
 export interface Skill {
   name: string;
+  subtitle?: string;
   level: number;
   max?: number;
 }
@@ -91,6 +93,7 @@ export interface TimelineItem {
   location: string;
   title: string;
   content: JSX.Element;
+  logoSrc?: string | StaticImageData;
 }
 
 /**

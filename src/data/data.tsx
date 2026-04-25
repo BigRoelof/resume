@@ -1,9 +1,7 @@
 import {
   AcademicCapIcon,
   ArrowDownTrayIcon,
-  BuildingOffice2Icon,
-  CalendarIcon,
-  FlagIcon,
+  EnvelopeIcon,
   MapIcon,
   SparklesIcon,
 } from '@heroicons/react/24/outline';
@@ -11,22 +9,16 @@ import {
 import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
-import TwitterIcon from '../components/Icon/TwitterIcon';
 import heroImage from '../images/header-background.webp';
-import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
-import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
-import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
-import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
-import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
-import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
-import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
-import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
-import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
-import profilepic from '../images/profilepic.jpg';
-import testimonialImage from '../images/testimonial.webp';
+import profilepic from '../images/introBBQ_25_smol.jpg';
+import AHLogo from '../images/logos/AH_Logo.png';
+import avondaleLogo from '../images/logos/Avondale_Logo.png';
+import homecareLogo from '../images/logos/Homecare_Logo.png';
+import JPLogo from '../images/logos/JP_Logo.png';
+import ruLogo from '../images/logos/RU_logo.png';
+import tccLogo from '../images/logos/TCC_Logo.png';
+import thaliaLogo from '../images/logos/Thalia_Logo.png';
+import webdevLogo from '../images/logos/WebDev_Logo.png';
 import {
   About,
   ContactSection,
@@ -44,8 +36,8 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'React Resume Template',
-  description: "Example site built with Tim Baker's react resume template",
+  title: 'Roel Nijhuis | Computing Science Graduate / Software Engineer',
+  description: 'Personal website and resume for Roel Nijhuis, a calm and curious software engineer from the Netherlands.',
 };
 
 /**
@@ -56,7 +48,7 @@ export const SectionId = {
   About: 'about',
   Contact: 'contact',
   Portfolio: 'portfolio',
-  Resume: 'resume',
+  Resume: 'experience',
   Skills: 'skills',
   Stats: 'stats',
   Testimonials: 'testimonials',
@@ -69,26 +61,27 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Tim Baker.`,
+  name: `I'm Roel Nijhuis.`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Victoria based <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently working
-        at <strong className="text-stone-100">Instant Domains</strong> helping build a modern, mobile-first, domain
-        registrar and site builder.
+        I'm a <strong className="text-stone-100">Computing Science Graduate</strong> based in the Netherlands, with a focus on
+        building practical web applications.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, you can catch me training in <strong className="text-stone-100">Muay Thai</strong>,
-        plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
-        <strong className="text-stone-100">Vancouver Island</strong>.
+        Calm and approachable by nature, I enjoy collaborating with others, learning new skills, and solving problems
+        in a thoughtful way. Outside of work I like <strong className="text-stone-100">playing music</strong>,
+        <strong className="text-stone-100">hockey</strong>, <strong className="text-stone-100">running</strong>, and
+        a good game of <strong className="text-stone-100">chess</strong>.
       </p>
     </>
   ),
   actions: [
     {
-      href: '/assets/resume.pdf',
+      href: '/CV_Roel_Nijhuis.pdf',
       text: 'Resume',
       primary: true,
+      download: true,
       Icon: ArrowDownTrayIcon,
     },
     {
@@ -104,16 +97,15 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
-  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
-  in.`,
+  description: `Calm and approachable, with the ability to get along well with almost everyone, is how I would describe
+myself. I'm attentive to the needs of others and enjoy contributing to a positive work environment. I consider myself
+to be an eager learner and I regularly seek opportunities to build new skills, whether through collaboration or
+self-directed learning such as online content.`,
   aboutItems: [
-    {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
-    {label: 'Age', text: '29', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon},
-    {label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon},
-    {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
+    {label: 'Location', text: 'Nijmegen, Netherlands', Icon: MapIcon},
+    {label: 'Study', text: 'Radboud University', Icon: AcademicCapIcon},
+    // {label: 'Employment', text: 'JP Activiteiten', Icon: BuildingOffice2Icon},
+    {label: 'Interests', text: 'Music, hockey, running, chess', Icon: SparklesIcon},
   ],
 };
 
@@ -122,11 +114,48 @@ export const aboutData: About = {
  */
 export const skills: SkillGroup[] = [
   {
-    name: 'Spoken languages',
+    name: 'Programming Languages',
     skills: [
+      {
+        name: 'C++',
+        level: 8,
+      },           
+      {
+        name: 'Python',
+        level: 7,
+      },
+      {
+        name: 'SQL',
+        level: 6,
+      },
+      {
+        name: 'Javascript/TypeScript',
+        level: 6,
+      },
+      {
+        name: 'CSS',
+        level: 6,
+      },      
+      {
+        name: 'LaTeX',
+        level: 8,
+      }, 
+    ],
+  },
+    {
+    name: 'Spoken Languages',
+    skills: [
+      {
+        name: 'Dutch',
+        level: 10,
+      },
       {
         name: 'English',
         level: 10,
+      },
+      {
+        name: 'German',
+        level: 8,
       },
       {
         name: 'French',
@@ -139,53 +168,29 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
-    name: 'Frontend development',
+    name: 'Other Skills',
     skills: [
       {
-        name: 'React',
-        level: 9,
-      },
-      {
-        name: 'Typescript',
-        level: 7,
-      },
-      {
-        name: 'GraphQL',
-        level: 6,
-      },
-    ],
-  },
-  {
-    name: 'Backend development',
-    skills: [
-      {
-        name: 'Node.js',
+        name: 'Frontend',
+        subtitle: 'React, Vue',
         level: 8,
       },
       {
-        name: 'Rust',
-        level: 5,
+        name: 'Backend',
+        subtitle: 'Django, Laravel Nova',
+        level: 7,
       },
       {
-        name: 'Golang',
-        level: 4,
-      },
-    ],
-  },
-  {
-    name: 'Mobile development',
-    skills: [
-      {
-        name: 'React Native',
-        level: 9,
+        name: 'Git',
+        level: 7,
       },
       {
-        name: 'Flutter',
-        level: 4,
+        name: 'Docker',
+        level: 6,
       },
       {
-        name: 'Swift',
-        level: 3,
+        name: 'Photoshop',
+        level: 7,
       },
     ],
   },
@@ -194,115 +199,102 @@ export const skills: SkillGroup[] = [
 /**
  * Portfolio section
  */
-export const portfolioItems: PortfolioItem[] = [
-  {
-    title: 'Project title 1',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage1,
-  },
-  {
-    title: 'Project title 2',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage2,
-  },
-  {
-    title: 'Project title 3',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage3,
-  },
-  {
-    title: 'Project title 4',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage4,
-  },
-  {
-    title: 'Project title 5',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage5,
-  },
-  {
-    title: 'Project title 6',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage6,
-  },
-  {
-    title: 'Project title 7',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage7,
-  },
-  {
-    title: 'Project title 8',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage8,
-  },
-  {
-    title: 'Project title 9',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage9,
-  },
-  {
-    title: 'Project title 10',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage10,
-  },
-  {
-    title: 'Project title 11',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage11,
-  },
-];
+export const portfolioItems: PortfolioItem[] = [];
 
 /**
  * Resume section -- TODO: Standardize resume contact format or offer MDX
  */
 export const education: TimelineItem[] = [
   {
-    date: 'April 2007',
-    location: 'Clown college',
-    title: 'Masters in Beer tasting',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: '2020 - 2026',
+    location: 'Radboud University',
+    title: 'Bachelor Computing Science',
+    logoSrc: ruLogo,
+    content: (
+      <p>
+        Specialisation tracks in Data Science and Cyber Security. Minors in Physics and Business.
+      </p>
+    ),
   },
   {
-    date: 'March 2003',
-    location: 'School of Business',
-    title: 'What did you study 101',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: '2019 - 2020',
+    location: 'Radboud University',
+    title: 'Bachelor Physics & Astronomy',
+    logoSrc: ruLogo,
+    content: <p>Built a strong scientific base before focusing fully on Computing Science.</p>,
+  },
+  {
+    date: '2018',
+    location: 'Avondale College, Auckland, New Zealand',
+    title: 'International High School',
+    logoSrc: avondaleLogo,
+    content: <p>Completed part of my high school education abroad.</p>,
+  },
+  {
+    date: '2012 - 2019',
+    location: 'Twents Carmel College',
+    title: 'VWO Atheneum',
+    logoSrc: tccLogo,
+    content: <p>Profile NT, with business economics as an additional course.</p>,
   },
 ];
 
 export const experience: TimelineItem[] = [
   {
-    date: 'March 2010 - Present',
-    location: 'Awesome Development Company',
-    title: 'Senior UX Engineer',
-    content: (
-      <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
-      </p>
-    ),
+    date: '2025 - 2026',
+    location: 'JP Activiteiten',
+    title: 'Software Engineer',
+    logoSrc: JPLogo,
+    content: <p>Full-stack development for the web app daarisenzaaltjevoor.nl.</p>,
   },
   {
-    date: 'March 2007 - February 2010',
-    location: 'Garage Startup Studio',
-    title: 'Junior bug fixer',
-    content: (
-      <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
-      </p>
-    ),
+    date: '2024 - 2025',
+    location: 'Radboud University',
+    title: 'Teaching Assistant',
+    logoSrc: ruLogo,
+    content: <p>Tutoring for the course Algorithms & Data Structures.</p>,
+  },
+  {
+    date: '2021 - Present',
+    location: 'Study Association Thalia',
+    title: 'Committee Work',
+    logoSrc: thaliaLogo,
+    content: <p>Events Committee, Partner Committee, Lustrum Committee (Chair), and Audit Committee.</p>,
+  },
+  {
+    date: '2023 - 2024',
+    location: 'Study Association Thalia',
+    title: 'Board Year - Treasurer',
+    logoSrc: thaliaLogo,
+    content: <p>Responsible for the association's finances as treasurer during the board year.</p>,
+  },
+  {
+    date: '2021 - 2023',
+    location: 'Private residence',
+    title: 'Home Care Support',
+    logoSrc: homecareLogo,
+    content: <p>Household assistance for an individual with mobility challenges.</p>,
+  },
+  {
+    date: '2015 - 2019',
+    location: 'Twents Carmel College',
+    title: 'Private Tutor',
+    logoSrc: tccLogo,
+    content: <p>Tutored scientific subjects including Physics, Chemistry, and Mathematics.</p>,
+  },
+  {
+    date: '2016 -2018',
+    location: 'Albert Heijn, Oldenzaal',
+    title: 'Restocking',
+    logoSrc: AHLogo,
+    content: <p>Worked in store operations with restocking and coordination tasks.</p>,
+  },
+  {
+    date: '2016',
+    location: 'Massage practice of an acquaintance',
+    title: 'Website Design',
+    logoSrc: webdevLogo,
+    content: <p>Designed the website for massage-ayuda.nl.</p>,
   },
 ];
 
@@ -310,24 +302,7 @@ export const experience: TimelineItem[] = [
  * Testimonial section
  */
 export const testimonial: TestimonialSection = {
-  imageSrc: testimonialImage,
-  testimonials: [
-    {
-      name: 'John Doe',
-      text: 'Use this as an opportunity to promote what it is like to work with you. High value testimonials include ones from current or past co-workers, managers, or from happy clients.',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
-    },
-    {
-      name: 'Jane Doe',
-      text: 'Here you should write some nice things that someone has said about you. Encourage them to be specific and include important details (notes about a project you were on together, impressive quality produced, etc).',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
-    },
-    {
-      name: 'Someone else',
-      text: 'Add several of these, and keep them as fresh as possible, but be sure to focus on quality testimonials with strong highlights of your skills/work ethic.',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/69.jpg',
-    },
-  ],
+  testimonials: [],
 };
 
 /**
@@ -336,27 +311,23 @@ export const testimonial: TestimonialSection = {
 
 export const contact: ContactSection = {
   headerText: 'Get in touch.',
-  description: 'Here is a good spot for a message to your readers to let them know how best to reach out to you.',
+  description:
+    'If you would like to collaborate, chat about software, or just say hello, feel free to reach out through email or LinkedIn.',
   items: [
     {
       type: ContactType.Email,
-      text: 'reachout@timbaker.me',
-      href: 'mailto:reachout@timbaker.me',
+      text: 'roel.nijhuis@gmail.com',
+      href: 'mailto:roel.nijhuis@gmail.com',
     },
     {
       type: ContactType.Location,
-      text: 'Victoria BC, Canada',
-      href: 'https://www.google.ca/maps/place/Victoria,+BC/@48.4262362,-123.376775,14z',
+      text: 'Nijmegen, Netherlands',
+      href: 'https://www.google.com/maps/search/Nijmegen,+Netherlands',
     },
     {
-      type: ContactType.Instagram,
-      text: '@tbakerx',
-      href: 'https://www.instagram.com/tbakerx/',
-    },
-    {
-      type: ContactType.Github,
-      text: 'tbakerx',
-      href: 'https://github.com/tbakerx',
+      type: ContactType.LinkedIn,
+      text: 'Roel Nijhuis',
+      href: 'https://www.linkedin.com/in/roel-nijhuis-9a1a7733b',
     },
   ],
 };
@@ -365,9 +336,8 @@ export const contact: ContactSection = {
  * Social items
  */
 export const socialLinks: Social[] = [
-  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/tbakerx'},
-  {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/8553186/tim-baker'},
-  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/timbakerx/'},
-  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/reactresume/'},
-  {label: 'Twitter', Icon: TwitterIcon, href: 'https://twitter.com/TimBakerx'},
+  {label: 'Email', Icon: EnvelopeIcon, href: 'mailto:roel.nijhuis@gmail.com'},
+  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/roel-nijhuis-9a1a7733b'},
+  {label: 'GitHub', Icon: GithubIcon, href: 'https://github.com/BigRoelof'},
+  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/roelof_01/'},
 ];
