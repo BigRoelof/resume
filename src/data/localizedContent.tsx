@@ -172,7 +172,7 @@ const localeStrings = {
       description: 'Persoonlijke website en cv van Roel Nijhuis, een rustige en nieuwsgierige software engineer uit Nederland.',
     },
     hero: {
-      intro: 'Recentelijk heb ik mijn bachelordiploma behaald in Computing Science aan de Radboud Universiteit en in september ga ik hier starten aan mijn master Information Science. Mijn focus ligt op het bouwen van praktische webapplicaties.',
+      intro: 'Onlangs heb ik mijn bachelordiploma behaald in Computing Science aan de Radboud Universiteit, en in september start ik aan mijn master Information Science. Mijn focus ligt op het bouwen van praktische webapplicaties.',
       body: 'Ik ben een rustige jongen en kan in principe met iedereen goed overweg. Ik werk graag samen met anderen, ben leergierig en los problemen op een doordachte manier op. Buiten werk/studie houd ik van muziek maken, hockey, hardlopen. Af en toe speel ik ook een potje schaak.',
       resume: 'CV',
       contact: 'Contact',
