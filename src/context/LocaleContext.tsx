@@ -1,4 +1,4 @@
-import {createContext, FC, PropsWithChildren, useContext, useEffect, useMemo, useState} from 'react';
+import {createContext, memo, PropsWithChildren, useContext, useEffect, useMemo, useState} from 'react';
 
 export type Locale = 'en' | 'nl';
 
@@ -12,7 +12,7 @@ const localeStorageKey = 'resume-locale';
 
 const LocaleContext = createContext<LocaleContextValue | undefined>(undefined);
 
-export const LocaleProvider: FC<PropsWithChildren> = ({children}) => {
+export const LocaleProvider = memo(({children}: PropsWithChildren) => {
   const [locale, setLocaleState] = useState<Locale>('nl');
 
   useEffect(() => {
@@ -43,7 +43,9 @@ export const LocaleProvider: FC<PropsWithChildren> = ({children}) => {
   );
 
   return <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>;
-};
+});
+
+LocaleProvider.displayName = 'LocaleProvider';
 
 export const useLocale = (): LocaleContextValue => {
   const context = useContext(LocaleContext);

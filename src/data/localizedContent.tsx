@@ -9,6 +9,7 @@ import {
 import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
+import type {Locale} from '../context/LocaleContext';
 import heroImage from '../images/header-background.webp';
 import profilepic from '../images/introBBQ_25_smol.jpg';
 import AHLogo from '../images/logos/AH_Logo.png';
@@ -22,7 +23,6 @@ import webdevLogo from '../images/logos/WebDev_Logo.png';
 import {SectionId} from './data';
 import type {About, ContactSection, Hero, HomepageMeta, SkillGroup, Social, TimelineItem} from './dataDef';
 import {ContactType} from './dataDef';
-import type {Locale} from '../context/LocaleContext';
 
 export interface LocalizedContent {
   homePageMeta: HomepageMeta;

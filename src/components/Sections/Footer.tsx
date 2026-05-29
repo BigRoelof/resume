@@ -1,8 +1,8 @@
 import {BoltIcon, ChevronUpIcon} from '@heroicons/react/24/solid';
 import {FC, memo} from 'react';
 
-import {SectionId} from '../../data/data';
 import {useLocale} from '../../context/LocaleContext';
+import {SectionId} from '../../data/data';
 import {getLocalizedContent} from '../../data/localizedContent';
 import Socials from '../Socials';
 

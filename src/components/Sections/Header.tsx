@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import {FC, Fragment, memo, useCallback, useMemo, useState} from 'react';
 
-import {SectionId} from '../../data/data';
 import {useLocale} from '../../context/LocaleContext';
+import {SectionId} from '../../data/data';
 import {getLocalizedContent} from '../../data/localizedContent';
 import {useNavObserver} from '../../hooks/useNavObserver';
 
@@ -32,8 +32,8 @@ const Header: FC = memo(() => {
 
   return (
     <>
-      <MobileNav currentSection={currentSection} navSections={navSections} locale={locale} toggleLocale={toggleLocale} />
-      <DesktopNav currentSection={currentSection} navSections={navSections} locale={locale} toggleLocale={toggleLocale} />
+      <MobileNav currentSection={currentSection} locale={locale} navSections={navSections} toggleLocale={toggleLocale} />
+      <DesktopNav currentSection={currentSection} locale={locale} navSections={navSections} toggleLocale={toggleLocale} />
     </>
   );
 });
@@ -132,8 +132,8 @@ const MobileNav: FC<{
                       current={section.id === currentSection}
                       inactiveClass={inactiveClass}
                       key={section.id}
-                      onClick={toggleOpen}
                       label={section.label}
+                      onClick={toggleOpen}
                       section={section.id}
                     />
                   ))}

@@ -1,7 +1,7 @@
 import {FC, memo} from 'react';
 
-import {SectionId} from '../../../data/data';
 import {useLocale} from '../../../context/LocaleContext';
+import {SectionId} from '../../../data/data';
 import {getLocalizedContent} from '../../../data/localizedContent';
 import Section from '../../Layout/Section';
 import ResumeSection from './ResumeSection';

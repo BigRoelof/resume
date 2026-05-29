@@ -2,10 +2,10 @@ import {DevicePhoneMobileIcon, EnvelopeIcon, MapPinIcon} from '@heroicons/react/
 import classNames from 'classnames';
 import {FC, memo} from 'react';
 
-import {SectionId} from '../../../data/data';
 import {useLocale} from '../../../context/LocaleContext';
-import {getLocalizedContent} from '../../../data/localizedContent';
+import {SectionId} from '../../../data/data';
 import {ContactType, ContactValue} from '../../../data/dataDef';
+import {getLocalizedContent} from '../../../data/localizedContent';
 import FacebookIcon from '../../Icon/FacebookIcon';
 import GithubIcon from '../../Icon/GithubIcon';
 import InstagramIcon from '../../Icon/InstagramIcon';
