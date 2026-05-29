@@ -70,7 +70,7 @@ const baseSocialLinks: Array<Omit<Social, 'label'>> = [
 const localeStrings = {
   en: {
     homePageMeta: {
-      title: 'Roel Nijhuis | Computing Science Graduate / Software Engineer',
+      title: 'Roel Nijhuis',
       description: 'Personal website and resume for Roel Nijhuis, a calm and curious software engineer from the Netherlands.',
     },
     hero: {
@@ -105,7 +105,7 @@ const localeStrings = {
     },
     experience: {
       title: 'Software Engineer',
-      content: 'Full-stack development for the web app daarisenzaaltjevoor.nl.',
+      content: 'Full-stack development for the web app daariseenzaaltjevoor.nl.',
       title2: 'Teaching Assistant',
       content2: 'Tutoring for the course Algorithms & Data Structures.',
       title3: 'Committee Work',
@@ -119,7 +119,7 @@ const localeStrings = {
       title7: 'Restocking',
       content7: 'Worked in store operations with restocking and coordination tasks.',
       title8: 'Website Design',
-      content8: 'Designed the website for massage-ayuda.nl.',
+      content8: 'Designed simple website for an acquaintance. ',
     },
     contact: {
       headerText: 'Get in touch.',
@@ -203,7 +203,7 @@ const localeStrings = {
     },
     experience: {
       title: 'Software engineer',
-      content: 'Full-stack ontwikkeling voor de webapp daarisenzaaltjevoor.nl.',
+      content: 'Full-stack ontwikkeling voor de webapp daariseenzaaltjevoor.nl.',
       title2: 'Docentassistent',
       content2: 'Begeleiding bij het vak Algorithms & Data Structures.',
       title3: 'Commissiewerk',
@@ -217,7 +217,7 @@ const localeStrings = {
       title7: 'Vakkenvullen',
       content7: 'Werkzaam geweest in de winkel met vakkenvullen en coördinerende taken.',
       title8: 'Websiteontwerp',
-      content8: 'Simpele website ontworpen voor een kennis (www.massage-ayuda.nl).',
+      content8: 'Simpele website ontworpen voor een kennis. ',
     },
     contact: {
       headerText: 'Neem contact op.',
@@ -265,6 +265,27 @@ const localeStrings = {
     },
   },
 } as const;
+
+// Helper: replace matched domain substrings with clickable anchors
+const linkifyDomains = (text: string, domains: string[]) => {
+  const pattern = domains.map(d => d.replace(/\./g, '\\.')).join('|');
+  const re = new RegExp(`(${pattern})`);
+  const parts = text.split(re);
+
+  return (
+    <>
+      {parts.map((p, i) =>
+        domains.includes(p) ? (
+          <a href={`https://${p.replace(/^www\./, '')}`} key={i} rel="noopener noreferrer" target="_blank">
+            {p}
+          </a>
+        ) : (
+          p
+        ),
+      )}
+    </>
+  );
+};
 
 const makeSkillGroups = (locale: Locale): SkillGroup[] => {
   const strings = localeStrings[locale].skillGroups;
@@ -359,12 +380,7 @@ const makeExperience = (locale: Locale): TimelineItem[] => {
       location: 'JP Activiteiten',
       title: strings.title,
       logoSrc: JPLogo,
-      content: (
-        <p>
-          {strings.content.replace('daarisenzaaltjevoor.nl.', '')}
-          <a href="https://daarisenzaaltjevoor.nl" rel="noopener noreferrer" target="_blank">daarisenzaaltjevoor.nl</a>
-        </p>
-      ),
+      content: <p>{linkifyDomains(strings.content, ['daariseenzaaltjevoor.nl'])}</p>,
     },
     {
       date: '2024 - 2025',
@@ -414,17 +430,12 @@ const makeExperience = (locale: Locale): TimelineItem[] => {
       title: strings.title8,
       logoSrc: webdevLogo,
       content: (
-        <p>
-          {(() => {
-            const parts = strings.content8.split(/(www\.massage-ayuda\.nl|massage-ayuda\.nl)/);
-            return (
-              <>
-                {parts[0]}
-                <a href="https://www.massage-ayuda.nl" rel="noopener noreferrer" target="_blank">{parts[1]}</a>
-                {parts[2]}
-              </>
-            );
-          })()}
+        <p>{strings.content8}
+           (
+          <a href="http://www.massage-ayuda.nl" rel="noopener noreferrer" target="_blank">
+            www.massage-ayuda.nl
+          </a>
+          )
         </p>
       ),
     },
