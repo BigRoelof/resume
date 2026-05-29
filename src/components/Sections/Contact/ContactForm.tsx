@@ -1,43 +1,46 @@
-import {FC, memo, useCallback, useMemo, useState} from 'react';
+import {FC, memo, useCallback, useState} from 'react';
 
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-}
+import {useLocale} from '../../../context/LocaleContext';
+import {getLocalizedContent} from '../../../data/localizedContent';
 
 const ContactForm: FC = memo(() => {
-  const defaultData = useMemo(
-    () => ({
-      name: '',
-      email: '',
-      message: '',
-    }),
-    [],
-  );
-
-  const [data, setData] = useState<FormData>(defaultData);
-
-  const onChange = useCallback(
-    <T extends HTMLInputElement | HTMLTextAreaElement>(event: React.ChangeEvent<T>): void => {
-      const {name, value} = event.target;
-
-      const fieldData: Partial<FormData> = {[name]: value};
-
-      setData({...data, ...fieldData});
-    },
-    [data],
-  );
+  const {locale} = useLocale();
+  const {contactForm} = getLocalizedContent(locale);
+  const web3FormsAccessKey = '18569213-0c44-4ce8-9223-659fe50f18dc';
+  const [result, setResult] = useState<string>('');
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const handleSendMessage = useCallback(
     async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      /**
-       * This is a good starting point to wire up your form submission logic
-       * */
-      console.log('Data to send: ', data);
+      setIsSubmitting(true);
+      setResult(contactForm.sending);
+
+      const formElement = event.currentTarget;
+      const formData = new FormData(formElement);
+      formData.append('access_key', web3FormsAccessKey);
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const responseData = await response.json();
+
+        if (response.ok && responseData.success) {
+          setResult(contactForm.success);
+          formElement.reset();
+        } else {
+          setResult(contactForm.failure);
+        }
+      } catch (error) {
+        setResult(contactForm.networkError);
+      } finally {
+        setIsSubmitting(false);
+      }
     },
-    [data],
+    [contactForm.failure, contactForm.networkError, contactForm.sending, contactForm.success],
   );
 
   const inputClasses =
@@ -45,13 +48,12 @@ const ContactForm: FC = memo(() => {
 
   return (
     <form className="grid min-h-[320px] grid-cols-1 gap-y-4" method="POST" onSubmit={handleSendMessage}>
-      <input className={inputClasses} name="name" onChange={onChange} placeholder="Name" required type="text" />
+      <input className={inputClasses} name="name" placeholder={contactForm.namePlaceholder} required type="text" />
       <input
         autoComplete="email"
         className={inputClasses}
         name="email"
-        onChange={onChange}
-        placeholder="Email"
+        placeholder={contactForm.emailPlaceholder}
         required
         type="email"
       />
@@ -59,17 +61,18 @@ const ContactForm: FC = memo(() => {
         className={inputClasses}
         maxLength={250}
         name="message"
-        onChange={onChange}
-        placeholder="Message"
+        placeholder={contactForm.messagePlaceholder}
         required
         rows={6}
       />
       <button
         aria-label="Submit contact form"
         className="w-max rounded-full border-2 border-orange-600 bg-stone-900 px-4 py-2 text-sm font-medium text-white shadow-md outline-none hover:bg-stone-800 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:ring-offset-stone-800"
+        disabled={isSubmitting}
         type="submit">
-        Send Message
+        {isSubmitting ? contactForm.sending : contactForm.submit}
       </button>
+      <p className="min-h-[1.25rem] text-sm text-neutral-300">{result}</p>
     </form>
   );
 });

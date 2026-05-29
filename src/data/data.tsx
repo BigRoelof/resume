@@ -36,7 +36,7 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Roel Nijhuis | Computing Science Graduate / Software Engineer',
+  title: 'Roel Nijhuis',
   description: 'Personal website and resume for Roel Nijhuis, a calm and curious software engineer from the Netherlands.',
 };
 
@@ -65,13 +65,13 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a <strong className="text-stone-100">Computing Science Graduate</strong> based in the Netherlands, with a focus on
+        I'm a <strong className="text-stone-100">Computing Science Graduate</strong> based in Nijmegen (the Netherlands), with a focus on
         building practical web applications.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         Calm and approachable by nature, I enjoy collaborating with others, learning new skills, and solving problems
-        in a thoughtful way. Outside of work I like <strong className="text-stone-100">playing music</strong>,
-        <strong className="text-stone-100">hockey</strong>, <strong className="text-stone-100">running</strong>, and
+        in a thoughtful way. Outside of work/studies I like <strong className="text-stone-100">playing music</strong>, 
+        <strong className="text-stone-100"> hockey</strong>, <strong className="text-stone-100">running</strong>, and
         a good game of <strong className="text-stone-100">chess</strong>.
       </p>
     </>
@@ -171,13 +171,13 @@ export const skills: SkillGroup[] = [
     name: 'Other Skills',
     skills: [
       {
-        name: 'Frontend',
-        subtitle: 'React, Vue',
+        name: 'Frontend (React, Vue)',
+        //subtitle: 'React, Vue',
         level: 8,
       },
       {
-        name: 'Backend',
-        subtitle: 'Django, Laravel Nova',
+        name: 'Backend (Django, Laravel Nova)',
+        //subtitle: 'Django, Laravel Nova',
         level: 7,
       },
       {
@@ -191,6 +191,35 @@ export const skills: SkillGroup[] = [
       {
         name: 'Photoshop',
         level: 7,
+      },
+    ],
+  },
+    {
+    name: 'Instruments',
+    skills: [
+      {
+        name: 'Trumpet',
+        level: 9,
+      },
+      {
+        name: 'Piano',
+        level: 8,
+      },
+      {
+        name: 'Drums',
+        level: 8,
+      },
+      {
+        name: 'Synthesizers',
+        level: 7,
+      },
+      {
+        name: 'Saxophone',
+        level: 6,
+      },
+      {
+        name: 'Guitar',
+        level: 5,
       },
     ],
   },
@@ -212,7 +241,7 @@ export const education: TimelineItem[] = [
     logoSrc: ruLogo,
     content: (
       <p>
-        Specialisation tracks in Data Science and Cyber Security. Minors in Physics and Business.
+        Specialisation tracks in Data Science and Cyber Security. Minor in Physics and minor in Business.
       </p>
     ),
   },
@@ -221,7 +250,7 @@ export const education: TimelineItem[] = [
     location: 'Radboud University',
     title: 'Bachelor Physics & Astronomy',
     logoSrc: ruLogo,
-    content: <p>Built a strong scientific base before focusing fully on Computing Science.</p>,
+    content: <p>Started with a Physics degree before switching to Computing Science.</p>,
   },
   {
     date: '2018',

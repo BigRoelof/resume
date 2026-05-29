@@ -1,8 +1,12 @@
 import {FC, memo} from 'react';
 
-import {socialLinks} from '../data/data';
+import {useLocale} from '../context/LocaleContext';
+import {getLocalizedContent} from '../data/localizedContent';
 
 const Socials: FC = memo(() => {
+  const {locale} = useLocale();
+  const {socialLinks} = getLocalizedContent(locale);
+
   return (
     <>
       {socialLinks.map(({label, Icon, href}) => (
