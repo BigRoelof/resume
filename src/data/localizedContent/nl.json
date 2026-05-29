@@ -1,0 +1,121 @@
+{
+  "homePageMeta": {
+    "title": "Roel Nijhuis",
+    "description": "Persoonlijke website en cv van Roel Nijhuis, een rustige en nieuwsgierige software engineer uit Nederland."
+  },
+  "hero": {
+    "intro": "Onlangs heb ik mijn bachelordiploma behaald in Computing Science aan de Radboud Universiteit, en in september start ik aan mijn master Information Science. Mijn focus ligt op het bouwen van praktische webapplicaties.",
+    "body": "Ik ben een rustige jongen en kan in principe met iedereen goed overweg. Ik werk graag samen met anderen, ben leergierig en los problemen op een doordachte manier op. Buiten werk/studie houd ik van muziek maken, hockey, hardlopen. Af en toe speel ik ook een potje schaak.",
+    "resume": "CV",
+    "contact": "Contact"
+  },
+  "aboutHeading": "Over mij",
+  "aboutDescription": "Rustig en benaderbaar, met de eigenschap om goed met vrijwel iedereen overweg te kunnen, zo zou ik mezelf omschrijven. Ik heb aandacht voor de behoeften van anderen en draag graag bij aan een positieve werkomgeving. Ik zie mezelf als een leergierig persoon en zoek regelmatig kansen om nieuwe vaardigheden op te bouwen, zowel via samenwerking als via zelfstandig leren (zoals online content).",
+  "aboutItems": [
+    {
+      "label": "Locatie",
+      "text": "Nijmegen, Nederland"
+    },
+    {
+      "label": "Opleiding",
+      "text": "Radboud Universiteit"
+    },
+    {
+      "label": "Interesses",
+      "text": "Muziek, hockey, hardlopen, schaken"
+    }
+  ],
+  "skills": {
+    "programming": "Programmeertalen",
+    "spoken": "Gesproken talen",
+    "other": "Overige vaardigheden",
+    "instruments": "Instrumenten"
+  },
+  "education": {
+    "location": {
+      "radboud": "Radboud Universiteit",
+      "avondale": "Avondale College, Auckland, Nieuw-Zeeland",
+      "tcc": "Twents Carmel College"
+    },
+    "title": "Bachelor Computing Science",
+    "content": "Specialisatie tracks in Data Science en Cyber Security. Minor in Natuurkunde en minor in Bedrijfskunde.",
+    "title2": "Bachelor Natuur- en Sterrenkunde",
+    "content2": "Begonnen met een studie Natuurkunde voordat ik me volledig ben gaan richten op Informatica.",
+    "title3": "Internationale Highschool",
+    "content3": "Een deel van mijn middelbare schooltijd heb ik in het buitenland gevolgd.",
+    "title4": "VWO Atheneum",
+    "content4": "Profiel Natuur & Techniek, met bedrijfseconomie als extra vak."
+  },
+  "experience": {
+    "location": {
+      "jp": "JP Activiteiten",
+      "radboud": "Radboud Universiteit",
+      "thalia": "Studievereniging Thalia",
+      "privateResidence": "Particuliere woning",
+      "tcc": "Twents Carmel College",
+      "ah": "Albert Heijn, Oldenzaal",
+      "massage": "Massagepraktijk van een kennis"
+    },
+    "title": "Software engineer",
+    "content": "Full-stack ontwikkeling voor de webapp daariseenzaaltjevoor.nl.",
+    "title2": "Student assistent",
+    "content2": "Begeleiden van werkcolleges voor het vak Algorithms & Data Structures.",
+    "title3": "Commissiewerk",
+    "content3": "Werk voor verschillende commissies, waaronder de Evenementencommissie, Partnercommissie, Lustrumcommissie (voorzitter) en Kascommissie en nog een aantal andere commissies .",
+    "title4": "Bestuursjaar: Penningmeester",
+    "content4": "Verantwoordelijk voor de financiën van een studievereniging met ongeveer 800 leden.",
+    "title5": "Thuiszorg",
+    "content5": "Huishoudelijke ondersteuning voor een persoon met mobiliteitsbeperkingen.",
+    "title6": "Bijles docent",
+    "content6": "Bijles gegeven in bètavakken zoals natuurkunde, scheikunde en wiskunde.",
+    "title7": "Vakkenvuller",
+    "content7": "Werkzaam geweest in de winkel met vakkenvullen en coördinerende taken.",
+    "title8": "Websiteontwerp",
+    "content8": "Simpele website ontworpen voor een kennis.",
+    "massageWebsiteLabel": "www.massage-ayuda.nl"
+  },
+  "contact": {
+    "headerText": "Neem contact op.",
+    "description": "Wil je samenwerken, praten over software of gewoon hallo zeggen? Neem dan gerust contact op via e-mail of LinkedIn.",
+    "email": "E-mail",
+    "location": "Locatie",
+    "locationValue": "Nijmegen, Nederland",
+    "linkedin": "LinkedIn"
+  },
+  "contactForm": {
+    "namePlaceholder": "Naam",
+    "emailPlaceholder": "E-mail",
+    "messagePlaceholder": "Bericht",
+    "submit": "Bericht versturen",
+    "sending": "Versturen...",
+    "success": "Gelukt! Je bericht is verzonden.",
+    "failure": "Er ging iets mis. Probeer het opnieuw.",
+    "networkError": "Netwerkfout. Probeer het opnieuw."
+  },
+  "footer": {
+    "builtWith": "Gemaakt met",
+    "copyright": "Copyright"
+  },
+  "nav": {
+    "about": "Over mij",
+    "resume": "Ervaring",
+    "contact": "Contact"
+  },
+  "resume": {
+    "education": "Opleiding",
+    "work": "Werkervaring",
+    "skills": "Vaardigheden"
+  },
+  "socialLabels": {
+    "email": "E-mail",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "instagram": "Instagram"
+  },
+  "skillGroups": {
+    "programming": "Programmeertalen",
+    "spoken": "Gesproken talen",
+    "other": "Overige vaardigheden",
+    "instruments": "Instrumenten"
+  }
+}

@@ -23,6 +23,8 @@ import webdevLogo from '../images/logos/WebDev_Logo.png';
 import {SectionId} from './data';
 import type {About, ContactSection, Hero, HomepageMeta, SkillGroup, Social, TimelineItem} from './dataDef';
 import {ContactType} from './dataDef';
+import enText from './localizedContent/en.json';
+import nlText from './localizedContent/nl.json';
 
 export interface LocalizedContent {
   homePageMeta: HomepageMeta;
@@ -60,6 +62,13 @@ export interface LocalizedContent {
   socialLinks: Social[];
 }
 
+type LocaleText = typeof enText;
+
+const localeTexts: Record<Locale, LocaleText> = {
+  en: enText,
+  nl: nlText,
+};
+
 const baseSocialLinks: Array<Omit<Social, 'label'>> = [
   {Icon: EnvelopeIcon, href: 'mailto:roel.nijhuis@gmail.com'},
   {Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/roel-nijhuis-9a1a7733b'},
@@ -67,397 +76,180 @@ const baseSocialLinks: Array<Omit<Social, 'label'>> = [
   {Icon: InstagramIcon, href: 'https://www.instagram.com/roelof_01/'},
 ];
 
-const localeStrings = {
-  en: {
-    homePageMeta: {
-      title: 'Roel Nijhuis',
-      description: 'Personal website and resume for Roel Nijhuis, a calm and curious software engineer from the Netherlands.',
-    },
-    hero: {
-      intro: "I'm a Computing Science Graduate based in Nijmegen (the Netherlands), with a focus on building practical web applications.",
-      body: 'Calm and approachable by nature, I enjoy collaborating with others, learning new skills, and solving problems in a thoughtful way. Outside of work/studies I like playing music, hockey, running, and a good game of chess.',
-      resume: 'Resume',
-      contact: 'Contact',
-    },
-    aboutHeading: 'About me',
-    aboutDescription:
-      "Calm and approachable, with the ability to get along well with almost everyone, is how I would describe myself. I'm attentive to the needs of others and enjoy contributing to a positive work environment. I consider myself to be an eager learner and I regularly seek opportunities to build new skills, whether through collaboration or self-directed learning such as online content.",
-    aboutItems: [
-      {label: 'Location', text: 'Nijmegen, Netherlands'},
-      {label: 'Study', text: 'Radboud University'},
-      {label: 'Interests', text: 'Music, hockey, running, chess'},
-    ],
-    skills: {
-      programming: 'Programming Languages',
-      spoken: 'Spoken Languages',
-      other: 'Other Skills',
-      instruments: 'Instruments',
-    },
-    education: {
-      title: 'Bachelor Computing Science',
-      content: 'Specialisation tracks in Data Science and Cyber Security. Minor in Physics and minor in Business.',
-      title2: 'Bachelor Physics & Astronomy',
-      content2: 'Built a strong scientific base before focusing fully on Computing Science.',
-      title3: 'International High School',
-      content3: 'Completed part of my high school education abroad.',
-      title4: 'VWO Atheneum',
-      content4: 'Profile NT, with business economics as an additional course.',
-    },
-    experience: {
-      title: 'Software Engineer',
-      content: 'Full-stack development for the web app daariseenzaaltjevoor.nl.',
-      title2: 'Teaching Assistant',
-      content2: 'Tutoring for the course Algorithms & Data Structures.',
-      title3: 'Committee Work',
-      content3: 'Events Committee, Partner Committee, Lustrum Committee (Chair), and Audit Committee.',
-      title4: 'Board Year - Treasurer',
-      content4: "Responsible for the association's finances as treasurer during the board year.",
-      title5: 'Home Care Support',
-      content5: 'Household assistance for an individual with mobility challenges.',
-      title6: 'Private Tutor',
-      content6: 'Tutored scientific subjects including Physics, Chemistry, and Mathematics.',
-      title7: 'Restocking',
-      content7: 'Worked in store operations with restocking and coordination tasks.',
-      title8: 'Website Design',
-      content8: 'Designed simple website for an acquaintance. ',
-    },
-    contact: {
-      headerText: 'Get in touch.',
-      description:
-        'If you would like to collaborate, chat about software, or just say hello, feel free to reach out through email or LinkedIn.',
-      email: 'Email',
-      location: 'Location',
-      linkedin: 'LinkedIn',
-    },
-    contactForm: {
-      namePlaceholder: 'Name',
-      emailPlaceholder: 'Email',
-      messagePlaceholder: 'Message',
-      submit: 'Send Message',
-      sending: 'Sending...',
-      success: 'Success! Your message has been sent.',
-      failure: 'Something went wrong. Please try again.',
-      networkError: 'Network error. Please try again.',
-    },
-    footer: {
-      builtWith: 'Built with',
-      copyright: 'Copyright',
-    },
-    nav: {
-      about: 'About me',
-      resume: 'Experience',
-      contact: 'Contact',
-    },
-    resume: {
-      education: 'Education',
-      work: 'Work',
-      skills: 'Skills',
-    },
-    socialLabels: {
-      email: 'Email',
-      linkedin: 'LinkedIn',
-      github: 'GitHub',
-      instagram: 'Instagram',
-    },
-    skillGroups: {
-      programming: 'Programming Languages',
-      spoken: 'Spoken Languages',
-      other: 'Other Skills',
-      instruments: 'Instruments',
-    },
-  },
-  nl: {
-    homePageMeta: {
-      title: 'Roel Nijhuis',
-      description: 'Persoonlijke website en cv van Roel Nijhuis, een rustige en nieuwsgierige software engineer uit Nederland.',
-    },
-    hero: {
-      intro: 'Onlangs heb ik mijn bachelordiploma behaald in Computing Science aan de Radboud Universiteit, en in september start ik aan mijn master Information Science. Mijn focus ligt op het bouwen van praktische webapplicaties.',
-      body: 'Ik ben een rustige jongen en kan in principe met iedereen goed overweg. Ik werk graag samen met anderen, ben leergierig en los problemen op een doordachte manier op. Buiten werk/studie houd ik van muziek maken, hockey, hardlopen. Af en toe speel ik ook een potje schaak.',
-      resume: 'CV',
-      contact: 'Contact',
-    },
-    aboutHeading: 'Over mij',
-    aboutDescription:
-      'Rustig en benaderbaar, met de eigenschap om goed met vrijwel iedereen overweg te kunnen, zo zou ik mezelf omschrijven. Ik heb aandacht voor de behoeften van anderen en draag graag bij aan een positieve werkomgeving. Ik zie mezelf als een leergierig persoon en zoek regelmatig kansen om nieuwe vaardigheden op te bouwen, zowel via samenwerking als via zelfstandig leren (zoals online content).',
-    aboutItems: [
-      {label: 'Locatie', text: 'Nijmegen, Nederland'},
-      {label: 'Opleiding', text: 'Radboud Universiteit'},
-      {label: 'Interesses', text: 'Muziek, hockey, hardlopen, schaken'},
-    ],
-    skills: {
-      programming: 'Programmeertalen',
-      spoken: 'Gesproken talen',
-      other: 'Overige vaardigheden',
-      instruments: 'Instrumenten',
-    },
-    education: {
-      title: 'Bachelor Informatica',
-      content: 'Specialisatie tracks in Data Science en Cyber Security. Minor in Natuurkunde en minor in Bedrijfskunde.',
-      title2: 'Bachelor Natuurkunde & Sterrenkunde',
-      content2: 'Begonnen met een studie Natuurkunde voordat ik me volledig ben gaan richten op Informatica.',
-      title3: 'Internationale Highschool',
-      content3: 'Een deel van mijn middelbare schooltijd heb ik in het buitenland gevolgd.',
-      title4: 'VWO Atheneum',
-      content4: 'Profiel Natuur & Techniek, met bedrijfseconomie als extra vak.',
-    },
-    experience: {
-      title: 'Software engineer',
-      content: 'Full-stack ontwikkeling voor de webapp daariseenzaaltjevoor.nl.',
-      title2: 'Docentassistent',
-      content2: 'Begeleiding bij het vak Algorithms & Data Structures.',
-      title3: 'Commissiewerk',
-      content3: 'Werk voor verschillende commissies, waaronder de Evenementencommissie, Partnercommissie, Lustrumcommissie (voorzitter) en Kascommissie en nog een aantal anderen.',
-      title4: 'Bestuursjaar - Penningmeester',
-      content4: 'Verantwoordelijk voor de financiën van de vereniging.',
-      title5: 'Thuiszorgondersteuning',
-      content5: 'Huishoudelijke ondersteuning voor een persoon met mobiliteitsbeperkingen.',
-      title6: 'Bijlesdocent',
-      content6: 'Bijles gegeven in betavakken zoals natuurkunde, scheikunde en wiskunde.',
-      title7: 'Vakkenvullen',
-      content7: 'Werkzaam geweest in de winkel met vakkenvullen en coördinerende taken.',
-      title8: 'Websiteontwerp',
-      content8: 'Simpele website ontworpen voor een kennis. ',
-    },
-    contact: {
-      headerText: 'Neem contact op.',
-      description:
-        'Wil je samenwerken, praten over software of gewoon hallo zeggen? Neem dan gerust contact op via e-mail of LinkedIn.',
-      email: 'E-mail',
-      location: 'Locatie',
-      linkedin: 'LinkedIn',
-    },
-    contactForm: {
-      namePlaceholder: 'Naam',
-      emailPlaceholder: 'E-mail',
-      messagePlaceholder: 'Bericht',
-      submit: 'Bericht versturen',
-      sending: 'Versturen...',
-      success: 'Gelukt! Je bericht is verzonden.',
-      failure: 'Er ging iets mis. Probeer het opnieuw.',
-      networkError: 'Netwerkfout. Probeer het opnieuw.',
-    },
-    footer: {
-      builtWith: 'Gemaakt met',
-      copyright: 'Copyright',
-    },
-    nav: {
-      about: 'Over mij',
-      resume: 'Ervaring',
-      contact: 'Contact',
-    },
-    resume: {
-      education: 'Opleiding',
-      work: 'Werkervaring',
-      skills: 'Vaardigheden',
-    },
-    socialLabels: {
-      email: 'E-mail',
-      linkedin: 'LinkedIn',
-      github: 'GitHub',
-      instagram: 'Instagram',
-    },
-    skillGroups: {
-      programming: 'Programmeertalen',
-      spoken: 'Gesproken talen',
-      other: 'Overige vaardigheden',
-      instruments: 'Instrumenten',
-    },
-  },
-} as const;
-
-// Helper: replace matched domain substrings with clickable anchors
 const linkifyDomains = (text: string, domains: string[]) => {
-  const pattern = domains.map(d => d.replace(/\./g, '\\.')).join('|');
-  const re = new RegExp(`(${pattern})`);
-  const parts = text.split(re);
+  const pattern = domains.map(domain => domain.replace(/\./g, '\\.')).join('|');
+  const parts = text.split(new RegExp(`(${pattern})`));
 
   return (
     <>
-      {parts.map((p, i) =>
-        domains.includes(p) ? (
-          <a href={`https://${p.replace(/^www\./, '')}`} key={i} rel="noopener noreferrer" target="_blank">
-            {p}
+      {parts.map((part, index) =>
+        domains.includes(part) ? (
+          <a href={`https://${part.replace(/^www\./, '')}`} key={index} rel="noopener noreferrer" target="_blank">
+            {part}
           </a>
         ) : (
-          p
+          part
         ),
       )}
     </>
   );
 };
 
-const makeSkillGroups = (locale: Locale): SkillGroup[] => {
-  const strings = localeStrings[locale].skillGroups;
+const makeSkillGroups = (strings: LocaleText): SkillGroup[] => [
+  {
+    name: strings.skillGroups.programming,
+    skills: [
+      {name: 'C++', level: 8},
+      {name: 'Python', level: 7},
+      {name: 'SQL', level: 6},
+      {name: 'Javascript/TypeScript', level: 6},
+      {name: 'CSS', level: 6},
+      {name: 'LaTeX', level: 8},
+    ],
+  },
+  {
+    name: strings.skillGroups.spoken,
+    skills: [
+      {name: 'Dutch', level: 10},
+      {name: 'English', level: 10},
+      {name: 'German', level: 8},
+      {name: 'French', level: 4},
+      {name: 'Spanish', level: 3},
+    ],
+  },
+  {
+    name: strings.skillGroups.other,
+    skills: [
+      {name: 'Frontend (React, Vue)', level: 8},
+      {name: 'Backend (Django, Laravel Nova)', level: 7},
+      {name: 'Git', level: 7},
+      {name: 'Docker', level: 6},
+      {name: 'Photoshop', level: 7},
+    ],
+  },
+  {
+    name: strings.skillGroups.instruments,
+    skills: [
+      {name: 'Trumpet', level: 9.5},
+      {name: 'Piano', level: 8},
+      {name: 'Drums', level: 8},
+      {name: 'Synthesizers', level: 7},
+      {name: 'Saxophone', level: 6},
+      {name: 'Guitar', level: 5},
+    ],
+  },
+];
 
-  return [
-    {
-      name: strings.programming,
-      skills: [
-        {name: 'C++', level: 8},
-        {name: 'Python', level: 7},
-        {name: 'SQL', level: 6},
-        {name: 'Javascript/TypeScript', level: 6},
-        {name: 'CSS', level: 6},
-        {name: 'LaTeX', level: 8},
-      ],
-    },
-    {
-      name: strings.spoken,
-      skills: [
-        {name: 'Dutch', level: 10},
-        {name: 'English', level: 10},
-        {name: 'German', level: 8},
-        {name: 'French', level: 4},
-        {name: 'Spanish', level: 3},
-      ],
-    },
-    {
-      name: strings.other,
-      skills: [
-        {name: 'Frontend (React, Vue)', level: 8},
-        {name: 'Backend (Django, Laravel Nova)', level: 7},
-        {name: 'Git', level: 7},
-        {name: 'Docker', level: 6},
-        {name: 'Photoshop', level: 7},
-      ],
-    },
-    {
-      name: strings.instruments,
-      skills: [
-        {name: 'Trumpet', level: 9},
-        {name: 'Piano', level: 8},
-        {name: 'Drums', level: 8},
-        {name: 'Synthesizers', level: 7},
-        {name: 'Saxophone', level: 6},
-        {name: 'Guitar', level: 5},
-      ],
-    },
-  ];
-};
+const makeEducation = (strings: LocaleText): TimelineItem[] => [
+  {
+    date: '2020 - 2026',
+    location: strings.education.location.radboud,
+    title: strings.education.title,
+    logoSrc: ruLogo,
+    content: <p>{strings.education.content}</p>,
+  },
+  {
+    date: '2019 - 2020',
+    location: strings.education.location.radboud,
+    title: strings.education.title2,
+    logoSrc: ruLogo,
+    content: <p>{strings.education.content2}</p>,
+  },
+  {
+    date: '2018',
+    location: strings.education.location.avondale,
+    title: strings.education.title3,
+    logoSrc: avondaleLogo,
+    content: <p>{strings.education.content3}</p>,
+  },
+  {
+    date: '2012 - 2019',
+    location: strings.education.location.tcc,
+    title: strings.education.title4,
+    logoSrc: tccLogo,
+    content: <p>{strings.education.content4}</p>,
+  },
+];
 
-const makeEducation = (locale: Locale): TimelineItem[] => {
-  const strings = localeStrings[locale].education;
-
-  return [
-    {
-      date: '2020 - 2026',
-      location: 'Radboud University',
-      title: strings.title,
-      logoSrc: ruLogo,
-      content: <p>{strings.content}</p>,
-    },
-    {
-      date: '2019 - 2020',
-      location: 'Radboud University',
-      title: strings.title2,
-      logoSrc: ruLogo,
-      content: <p>{strings.content2}</p>,
-    },
-    {
-      date: '2018',
-      location: 'Avondale College, Auckland, New Zealand',
-      title: strings.title3,
-      logoSrc: avondaleLogo,
-      content: <p>{strings.content3}</p>,
-    },
-    {
-      date: '2012 - 2019',
-      location: 'Twents Carmel College',
-      title: strings.title4,
-      logoSrc: tccLogo,
-      content: <p>{strings.content4}</p>,
-    },
-  ];
-};
-
-const makeExperience = (locale: Locale): TimelineItem[] => {
-  const strings = localeStrings[locale].experience;
-
-  return [
-    {
-      date: '2025 - 2026',
-      location: 'JP Activiteiten',
-      title: strings.title,
-      logoSrc: JPLogo,
-      content: <p>{linkifyDomains(strings.content, ['daariseenzaaltjevoor.nl'])}</p>,
-    },
-    {
-      date: '2024 - 2025',
-      location: 'Radboud University',
-      title: strings.title2,
-      logoSrc: ruLogo,
-      content: <p>{strings.content2}</p>,
-    },
-    {
-      date: '2021 - Present',
-      location: 'Study Association Thalia',
-      title: strings.title3,
-      logoSrc: thaliaLogo,
-      content: <p>{strings.content3}</p>,
-    },
-    {
-      date: '2023 - 2024',
-      location: 'Study Association Thalia',
-      title: strings.title4,
-      logoSrc: thaliaLogo,
-      content: <p>{strings.content4}</p>,
-    },
-    {
-      date: '2021 - 2023',
-      location: 'Private residence',
-      title: strings.title5,
-      logoSrc: homecareLogo,
-      content: <p>{strings.content5}</p>,
-    },
-    {
-      date: '2015 - 2019',
-      location: 'Twents Carmel College',
-      title: strings.title6,
-      logoSrc: tccLogo,
-      content: <p>{strings.content6}</p>,
-    },
-    {
-      date: '2016 -2018',
-      location: 'Albert Heijn, Oldenzaal',
-      title: strings.title7,
-      logoSrc: AHLogo,
-      content: <p>{strings.content7}</p>,
-    },
-    {
-      date: '2016',
-      location: 'Massage practice of an acquaintance',
-      title: strings.title8,
-      logoSrc: webdevLogo,
-      content: (
-        <p>{strings.content8}
-           (
-          <a href="http://www.massage-ayuda.nl" rel="noopener noreferrer" target="_blank">
-            www.massage-ayuda.nl
-          </a>
-          )
-        </p>
-      ),
-    },
-  ];
-};
+const makeExperience = (strings: LocaleText): TimelineItem[] => [
+  {
+    date: '2025 - 2026',
+    location: strings.experience.location.jp,
+    title: strings.experience.title,
+    logoSrc: JPLogo,
+    content: <p>{linkifyDomains(strings.experience.content, ['daariseenzaaltjevoor.nl'])}</p>,
+  },
+  {
+    date: '2024 - 2025',
+    location: strings.experience.location.radboud,
+    title: strings.experience.title2,
+    logoSrc: ruLogo,
+    content: <p>{strings.experience.content2}</p>,
+  },
+  {
+    date: '2021 - Present',
+    location: strings.experience.location.thalia,
+    title: strings.experience.title3,
+    logoSrc: thaliaLogo,
+    content: <p>{strings.experience.content3}</p>,
+  },
+  {
+    date: '2023 - 2024',
+    location: strings.experience.location.thalia,
+    title: strings.experience.title4,
+    logoSrc: thaliaLogo,
+    content: <p>{strings.experience.content4}</p>,
+  },
+  {
+    date: '2021 - 2023',
+    location: strings.experience.location.privateResidence,
+    title: strings.experience.title5,
+    logoSrc: homecareLogo,
+    content: <p>{strings.experience.content5}</p>,
+  },
+  {
+    date: '2015 - 2019',
+    location: strings.experience.location.tcc,
+    title: strings.experience.title6,
+    logoSrc: tccLogo,
+    content: <p>{strings.experience.content6}</p>,
+  },
+  {
+    date: '2016 -2018',
+    location: strings.experience.location.ah,
+    title: strings.experience.title7,
+    logoSrc: AHLogo,
+    content: <p>{strings.experience.content7}</p>,
+  },
+  {
+    date: '2016',
+    location: strings.experience.location.massage,
+    title: strings.experience.title8,
+    logoSrc: webdevLogo,
+    content: (
+      <p>
+        {strings.experience.content8.replace(/\.$/, '')} (
+        <a href="http://www.massage-ayuda.nl" rel="noopener noreferrer" target="_blank">
+          {strings.experience.massageWebsiteLabel}
+        </a>
+        ).
+      </p>
+    ),
+  },
+];
 
 export const getLocalizedContent = (locale: Locale): LocalizedContent => {
-  const strings = localeStrings[locale];
+  const strings = localeTexts[locale];
 
   return {
     homePageMeta: strings.homePageMeta,
     hero: {
       imageSrc: heroImage,
-      name: locale === 'nl' ? 'Ik ben Roel.' : `I'm Roel Nijhuis.`,
+      name: locale === 'nl' ? 'Ik ben Roel.' : "I'm Roel Nijhuis.",
       description: (
         <>
-          <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-            {strings.hero.intro}
-          </p>
-          <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-            {strings.hero.body}
-          </p>
+          <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">{strings.hero.intro}</p>
+          <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">{strings.hero.body}</p>
         </>
       ),
       actions: [
@@ -485,9 +277,9 @@ export const getLocalizedContent = (locale: Locale): LocalizedContent => {
       ],
     },
     aboutHeading: strings.aboutHeading,
-    skills: makeSkillGroups(locale),
-    education: makeEducation(locale),
-    experience: makeExperience(locale),
+    skills: makeSkillGroups(strings),
+    education: makeEducation(strings),
+    experience: makeExperience(strings),
     resumeLabels: strings.resume,
     navLabels: strings.nav,
     contact: {
@@ -495,17 +287,17 @@ export const getLocalizedContent = (locale: Locale): LocalizedContent => {
       description: strings.contact.description,
       items: [
         {
-            type: ContactType.Email,
+          type: ContactType.Email,
           text: 'roel.nijhuis@gmail.com',
           href: 'mailto:roel.nijhuis@gmail.com',
         },
         {
-            type: ContactType.Location,
-          text: locale === 'nl' ? 'Nijmegen, Nederland' : 'Nijmegen, Netherlands',
+          type: ContactType.Location,
+          text: strings.contact.locationValue,
           href: 'https://www.google.com/maps/search/Nijmegen,+Netherlands',
         },
         {
-            type: ContactType.LinkedIn,
+          type: ContactType.LinkedIn,
           text: 'Roel Nijhuis',
           href: 'https://www.linkedin.com/in/roel-nijhuis-9a1a7733b',
         },
@@ -515,7 +307,12 @@ export const getLocalizedContent = (locale: Locale): LocalizedContent => {
     footer: strings.footer,
     socialLinks: baseSocialLinks.map((item, index) => ({
       ...item,
-      label: [strings.socialLabels.email, strings.socialLabels.linkedin, strings.socialLabels.github, strings.socialLabels.instagram][index],
+      label: [
+        strings.socialLabels.email,
+        strings.socialLabels.linkedin,
+        strings.socialLabels.github,
+        strings.socialLabels.instagram,
+      ][index],
     })),
   };
 };

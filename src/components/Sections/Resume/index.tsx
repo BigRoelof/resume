@@ -13,8 +13,8 @@ const Resume: FC = memo(() => {
   const {education, experience, skills, resumeLabels} = getLocalizedContent(locale);
 
   return (
-    <Section className="bg-neutral-100" sectionId={SectionId.Resume}>
-      <div className="flex flex-col divide-y-2 divide-neutral-300">
+    <Section className="bg-neutral-400" sectionId={SectionId.Resume}>
+      <div className="flex flex-col divide-y-2 divide-neutral-600">
         <ResumeSection
           contentClassName="col-span-1 flex flex-col rounded-2xl border border-neutral-200/80 bg-gradient-to-br from-neutral-100 via-neutral-200/50 to-neutral-100 px-5 py-6 shadow-sm md:col-span-3 md:px-8 md:py-7"
           title={resumeLabels.education}

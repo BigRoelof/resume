@@ -1,0 +1,121 @@
+{
+  "homePageMeta": {
+    "title": "Roel Nijhuis",
+    "description": "Personal website and resume for Roel Nijhuis, a calm and curious software engineer from the Netherlands."
+  },
+  "hero": {
+    "intro": "I'm a Computing Science Graduate based in Nijmegen (the Netherlands), with a focus on building practical web applications. In September I will be starting a master's in Information Science.",
+    "body": "Calm and approachable by nature. I enjoy collaborating with others, learning new skills, and solving problems in a thoughtful way. Outside of work/studies I like playing music, hockey, running, and a good game of chess.",
+    "resume": "Resume",
+    "contact": "Contact"
+  },
+  "aboutHeading": "About me",
+  "aboutDescription": "Calm and approachable, with the ability to get along well with almost everyone, is how I would describe myself. I'm attentive to the needs of others and enjoy contributing to a positive work environment. I consider myself to be an eager learner and I regularly seek opportunities to build new skills, whether through collaboration or self-directed learning such as online content.",
+  "aboutItems": [
+    {
+      "label": "Location",
+      "text": "Nijmegen, Netherlands"
+    },
+    {
+      "label": "Study",
+      "text": "Radboud University"
+    },
+    {
+      "label": "Interests",
+      "text": "Music, hockey, running, chess"
+    }
+  ],
+  "skills": {
+    "programming": "Programming Languages",
+    "spoken": "Spoken Languages",
+    "other": "Other Skills",
+    "instruments": "Instruments"
+  },
+  "education": {
+    "location": {
+      "radboud": "Radboud University",
+      "avondale": "Avondale College, Auckland, New Zealand",
+      "tcc": "Twents Carmel College"
+    },
+    "title": "Bachelor Computing Science",
+    "content": "Specialisation tracks in Data Science and Cyber Security. Minor in Physics and minor in Business.",
+    "title2": "Bachelor Physics & Astronomy",
+    "content2": "Built a strong scientific base before focusing fully on Computing Science.",
+    "title3": "International High School",
+    "content3": "Completed part of my high school education abroad.",
+    "title4": "VWO Atheneum",
+    "content4": "Profile NT, with business economics as an additional course."
+  },
+  "experience": {
+    "location": {
+      "jp": "JP Activiteiten",
+      "radboud": "Radboud University",
+      "thalia": "Study Association Thalia",
+      "privateResidence": "Private residence",
+      "tcc": "Twents Carmel College",
+      "ah": "Albert Heijn, Oldenzaal",
+      "massage": "Massage Practice Aydua"
+    },
+    "title": "Software Engineer",
+    "content": "Full-stack development for the web app daariseenzaaltjevoor.nl.",
+    "title2": "Teaching Assistant",
+    "content2": "Tutoring for the course Algorithms & Data Structures.",
+    "title3": "Committee Work",
+    "content3": "Including but not limited to: Events Committee, Partner Committee, Lustrum Committee (Chair), and Audit Committee.",
+    "title4": "Board Year: Treasurer",
+    "content4": "Responsible for the finances of a study association with approximately 800 members.",
+    "title5": "Home Care Support",
+    "content5": "Household assistance for an individual with mobility challenges.",
+    "title6": "Private Tutor",
+    "content6": "Tutored scientific subjects including Physics, Chemistry, and Mathematics.",
+    "title7": "Restocking",
+    "content7": "Worked in store operations with restocking and coordination tasks.",
+    "title8": "Website Design",
+    "content8": "Designed simple website for an acquaintance.",
+    "massageWebsiteLabel": "www.massage-ayuda.nl"
+  },
+  "contact": {
+    "headerText": "Get in touch.",
+    "description": "If you would like to collaborate, chat about software, or just say hello, feel free to reach out through email or LinkedIn.",
+    "email": "Email",
+    "location": "Location",
+    "locationValue": "Nijmegen, Netherlands",
+    "linkedin": "LinkedIn"
+  },
+  "contactForm": {
+    "namePlaceholder": "Name",
+    "emailPlaceholder": "Email",
+    "messagePlaceholder": "Message",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success": "Success! Your message has been sent.",
+    "failure": "Something went wrong. Please try again.",
+    "networkError": "Network error. Please try again."
+  },
+  "footer": {
+    "builtWith": "Built with",
+    "copyright": "Copyright"
+  },
+  "nav": {
+    "about": "About me",
+    "resume": "Experience",
+    "contact": "Contact"
+  },
+  "resume": {
+    "education": "Education",
+    "work": "Work",
+    "skills": "Skills"
+  },
+  "socialLabels": {
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "instagram": "Instagram"
+  },
+  "skillGroups": {
+    "programming": "Programming Languages",
+    "spoken": "Spoken Languages",
+    "other": "Other Skills",
+    "instruments": "Instruments"
+  }
+}
