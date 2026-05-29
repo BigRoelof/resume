@@ -359,7 +359,12 @@ const makeExperience = (locale: Locale): TimelineItem[] => {
       location: 'JP Activiteiten',
       title: strings.title,
       logoSrc: JPLogo,
-      content: <p>{strings.content}</p>,
+      content: (
+        <p>
+          {strings.content.replace('daarisenzaaltjevoor.nl.', '')}
+          <a href="https://daarisenzaaltjevoor.nl" rel="noopener noreferrer" target="_blank">daarisenzaaltjevoor.nl</a>
+        </p>
+      ),
     },
     {
       date: '2024 - 2025',
@@ -408,7 +413,20 @@ const makeExperience = (locale: Locale): TimelineItem[] => {
       location: 'Massage practice of an acquaintance',
       title: strings.title8,
       logoSrc: webdevLogo,
-      content: <p>{strings.content8}</p>,
+      content: (
+        <p>
+          {(() => {
+            const parts = strings.content8.split(/(www\.massage-ayuda\.nl|massage-ayuda\.nl)/);
+            return (
+              <>
+                {parts[0]}
+                <a href="https://www.massage-ayuda.nl" rel="noopener noreferrer" target="_blank">{parts[1]}</a>
+                {parts[2]}
+              </>
+            );
+          })()}
+        </p>
+      ),
     },
   ];
 };
